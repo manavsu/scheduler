@@ -148,6 +148,11 @@
         schedule.Schedule = [...schedule.Schedule];
     }
 
+    function clean_up_and_delete() {
+        reset();
+        on_delete();
+    }
+
     $: update_times_and_values(schedule.Schedule);
     $: remove_setpoint_disabled = schedule.Schedule.map((_, index) => get_remove_setpoint_disabled(index));
     $: add_setpoint_disabled = schedule.Schedule.map((_, index) => get_add_setpoint_disabled(index));
@@ -179,7 +184,7 @@
     </div>
     <div class="flex flex-row gap-2 items-center">
         <!-- <button on:click={show_chart} class="stroke-white transition w-8 hover:stroke-amber-700 transition"><ChartIcon /></button> -->
-        <button on:click={on_delete} class="fill-white transition w-8 hover:fill-amber-700 transition"><TrashIcon /></button>
+        <button on:click={clean_up_and_delete} class="fill-white transition w-8 hover:fill-amber-700 transition"><TrashIcon /></button>
         <button on:click={reset} class="fill-white transition w-8 hover:fill-amber-700 transition"><ResetIcon /></button>
     </div>
 </div>
