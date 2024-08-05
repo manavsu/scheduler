@@ -6,11 +6,11 @@
 	import Time from "./time";
 	import { TimeInterval } from "$lib/time_intervals";
     import ResetIcon from "$lib/icons/reset_icon.svelte";
+    import { available_days } from "$lib/store";
 
     export let schedule = new PowerSchedule();
-    export let available_weekdays = [Weekday.Default, Weekday.Mon, Weekday.Tue, Weekday.Wed, Weekday.Thu, Weekday.Fri, Weekday.Sat, Weekday.Sun];
     export let on_delete: () => void;
-    export let show_chart: () => void;
+    // export let show_chart: () => void;
     
     let times: string[] = [];
     let power_values: string[] = [];
@@ -72,16 +72,16 @@
 
     function update_schedule_days(day: Weekday) {
         if (schedule.Days.includes(day)) {
-            if (!available_weekdays.includes(day)) {
-                available_weekdays.push(day);
+            if (!$available_days.includes(day)) {
+                $available_days.push(day);
             }
         } else {
-            if (available_weekdays.includes(day)) {
-                available_weekdays = available_weekdays.filter((weekday) => weekday !== day);
+            if ($available_days.includes(day)) {
+                $available_days = $available_days.filter((weekday) => weekday !== day);
             }
         }
         schedule.toggle_run_day(day);
-        available_weekdays = [...available_weekdays];
+        $available_days = [...$available_days];
         schedule.Days = [...schedule.Days];
     }
 
@@ -110,17 +110,20 @@
     }
     
     function parse_and_update_time(index: number, time: string) {
+        console.log(time);
         let new_time = Time.from_string(time);
         if (new_time == null) {
             times[index] = schedule.Schedule[index].time.time_str;
-            return;
+            throw new Error("Invalid time format");
         }
         let old_time = schedule.Schedule[index].time;
         schedule.Schedule[index].time = new_time.round(schedule.Interval);
         try {
             schedule.validate(schedule.Schedule);
-        } finally {
+        } catch (error) {
             schedule.Schedule[index].time = old_time;
+            throw error;
+        } finally {
             schedule.Schedule = [...schedule.Schedule];
         }
     }
@@ -150,10 +153,10 @@
     $: add_setpoint_disabled = schedule.Schedule.map((_, index) => get_add_setpoint_disabled(index));
 </script>
 
-<div class="flex flex-col text-xl text-nowrap gap-3 py-1">
+<div class="flex flex-col text-xl text-nowrap gap-3 py-1 pb-5 scrollbar-thin scrollbar-thumb-white scrollbar-track-black overflow-y-hidden">
     <div class="flex flex-row gap-2">
         {#each Object.values(Weekday) as day}
-            <button on:click={() => update_schedule_days(day)} disabled={!(schedule.Days.includes(day) || available_weekdays.includes(day))} class="text-center border-2 {schedule.Days.includes(day) ? "text-black bg-white hover:bg-black hover:text-white" : available_weekdays.includes(day) ? "text-white border-white hover:text-black hover:bg-white" : "text-gray-500 border-gray-500"} py-1 px-4 transition">{day}</button>
+            <button on:click={() => update_schedule_days(day)} disabled={!(schedule.Days.includes(day) || $available_days.includes(day))} class="text-center border-2 {schedule.Days.includes(day) ? "text-black bg-white hover:bg-black hover:text-white" : $available_days.includes(day) ? "text-white border-white hover:text-black hover:bg-white" : "text-gray-500 border-gray-500"} py-1 px-4 transition">{day}</button>
         {/each}
     </div>
     <div class="flex flex-row gap-2 items-center">
