@@ -1,6 +1,6 @@
 from enum import Enum
 
 class TimeIntervals(Enum):
-    ONE_HOUR = 0
-    FIFTEEN_MINUTES = 1
-    FIVE_MINUTES = 2
+    ONE_HOUR = 60
+    FIFTEEN_MINUTES = 15
+    FIVE_MINUTES = 5

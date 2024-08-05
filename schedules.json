@@ -1,0 +1,17 @@
+[
+    {
+        "schedule": [
+            {
+                "time": {
+                    "hour": 0,
+                    "minute": 0
+                },
+                "value": 0
+            }
+        ],
+        "interval": 60,
+        "days": [
+            "Default"
+        ]
+    }
+]

@@ -3,27 +3,32 @@ import  Time  from './time';
 import Weekday from './weekday';
 
 export default class PowerSchedule {
-    Schedule: { time: Time, value: number}[];
-    Interval: TimeInterval;
-    Days: Weekday[];
+    schedule: { time: Time, value: number}[];
+    interval: TimeInterval;
+    days: Weekday[];
     
-    constructor() {
-        this.Schedule = [{time: new Time(0,0), value: 0}];
-        this.Days = [];
-        this.Interval = TimeInterval.ONE_HOUR;
+    constructor(schedules: { time: Time, value: number}[] = [], interval: TimeInterval = TimeInterval.ONE_HOUR, days: Weekday[] = []) {
+        if (schedules.length == 0) {
+            this.schedule = [{time: new Time(0,0), value: 0}];
+        } else {
+            this.schedule = schedules;
+        }
+        this.days = days;
+        this.interval = interval;
+        this.validate(this.schedule);
     }
 
     static from_schedule(schedule: PowerSchedule) {
         let new_schedule = new PowerSchedule();
-        new_schedule.Schedule = schedule.Schedule;
-        new_schedule.Days = schedule.Days;
+        new_schedule.schedule = schedule.schedule;
+        new_schedule.days = schedule.days;
         return new_schedule;
     }
 
     reset() {
-        this.Schedule = [{time: new Time(0,0), value: 0}];
-        this.Days = [];
-        this.Interval = TimeInterval.ONE_HOUR;
+        this.schedule = [{time: new Time(0,0), value: 0}];
+        this.days = [];
+        this.interval = TimeInterval.ONE_HOUR;
     }
 
     validate(schedule: { time: Time, value: number }[]) {
@@ -34,35 +39,33 @@ export default class PowerSchedule {
             }
             times.push(schedule[i].time.time_str);
         }
-        for (let i = 1; i < this.Schedule.length; i++) {
-            if (this.Schedule[i].time.subtract(this.Schedule[i-1].time) < 0) {
+        for (let i = 1; i < this.schedule.length; i++) {
+            if (this.schedule[i].time.subtract(this.schedule[i-1].time) < 0) {
                 throw new Error("Schedule is not in order");
             }
         }
-        if (this.Schedule[0].time.subtract(new Time(0,0)) != 0) {
+        if (this.schedule[0].time.subtract(new Time(0,0)) != 0) {
             throw new Error("Schedule must start at 00:00");
         }
     }
 
     toggle_run_day(day: Weekday) {
-        console.log("start", this.Days, day);
-        if (!this.Days.includes(day)) {
-            this.Days.push(day);
+        if (!this.days.includes(day)) {
+            this.days.push(day);
         } else {
-            this.Days = this.Days.filter(x => x != day);
+            this.days = this.days.filter(x => x != day);
         }
-        console.log("end", this.Days, day);
     }
 
     update_interval(interval: TimeInterval) {
-        if (interval < this.Interval) {
-            this.Interval = interval;
+        if (interval < this.interval) {
+            this.interval = interval;
             return
         }
-        this.Interval = interval;
-        this.Schedule = this.Schedule.map(x => { return {time: x.time.round(interval), value: x.value} });
+        this.interval = interval;
+        this.schedule = this.schedule.map(x => { return {time: x.time.round(interval), value: x.value} });
         let times:string[] = [];
-        let schedule = this.Schedule;
+        let schedule = this.schedule;
         let unique_schedule = [];
         for (let i = 0; i < schedule.length; i++) {
             if (times.includes(schedule[i].time.time_str)) {
@@ -71,7 +74,7 @@ export default class PowerSchedule {
             times.push(schedule[i].time.time_str);
             unique_schedule.push(schedule[i]);
         }
-        this.Schedule = unique_schedule;
-        this.validate(this.Schedule);
+        this.schedule = unique_schedule;
+        this.validate(this.schedule);
     }
 }
