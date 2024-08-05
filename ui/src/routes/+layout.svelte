@@ -12,6 +12,6 @@
     }
 </style>
 
-<div class="flex-grow h-dvh overflow-auto w-full border-2">
+<div class="flex-grow h-dvh overflow-auto w-full">
   <slot />
 </div>

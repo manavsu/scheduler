@@ -129,6 +129,7 @@
     function update_interval(interval: TimeInterval) {
         schedule.update_interval(interval);
         schedule.Interval = interval;
+        schedule.Schedule = [...schedule.Schedule];
     }
 
     $: update_times_and_values(schedule.Schedule);

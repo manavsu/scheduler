@@ -21,17 +21,19 @@ export default class PowerSchedule {
     }
 
     validate(schedule: { time: Time, value: number }[]) {
-        let times = new Set(schedule.map(x => x.time.toString()));
-        console.log(times.size, schedule.length)
-        if (times.size != schedule.length) {
-            throw new Error("Schedule has duplicate times");
+        let times:string[] = [];
+        for (let i = 0; i < schedule.length; i++) {
+            if (times.includes(schedule[i].time.time_str)) {
+                throw new Error("Schedule has duplicate times");
+            }
+            times.push(schedule[i].time.time_str);
         }
         for (let i = 1; i < this.Schedule.length; i++) {
-            if (this.Schedule[i].time.subtract(this.Schedule[i-1].time)) {
+            if (this.Schedule[i].time.subtract(this.Schedule[i-1].time) < 0) {
                 throw new Error("Schedule is not in order");
             }
         }
-        if (this.Schedule[0].time.subtract(new Time(0,0)) || this.Schedule[this.Schedule.length - 1].time.subtract(new Time(23,59))) {
+        if (this.Schedule[0].time.subtract(new Time(0,0)) != 0) {
             throw new Error("Schedule must start at 00:00");
         }
     }
@@ -62,6 +64,7 @@ export default class PowerSchedule {
             unique_schedule.push(schedule[i]);
         }
         this.Schedule = unique_schedule;
+        console.log(this.Schedule);
         this.validate(this.Schedule);
     }
 }
