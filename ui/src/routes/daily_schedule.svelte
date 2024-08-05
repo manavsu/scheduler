@@ -157,9 +157,9 @@
         {/each}
     </div>
     <div class="flex flex-row gap-2 items-center">
-        <button on:click={() => update_interval(TimeInterval.FIVE_MINUTES)} disabled={schedule.Interval == TimeInterval.FIVE_MINUTES} class="border-2 {schedule.Interval == TimeInterval.FIVE_MINUTES ? "text-black bg-white" : "text-white border-white hover:text-black hover:bg-white"} py-1 px-4 transition">5 min</button>
-        <button on:click={() => update_interval(TimeInterval.FIFTEEN_MINUTES)} disabled={schedule.Interval == TimeInterval.FIFTEEN_MINUTES} class="border-2 {schedule.Interval == TimeInterval.FIFTEEN_MINUTES ? "text-black bg-white" : "text-white border-white hover:text-black hover:bg-white"} py-1 px-4 transition">15 min</button>
         <button on:click={() => update_interval(TimeInterval.ONE_HOUR)} disabled={schedule.Interval == TimeInterval.ONE_HOUR} class="border-2 {schedule.Interval == TimeInterval.ONE_HOUR ? "text-black bg-white" : "text-white border-white hover:text-black hover:bg-white"} py-1 px-4 transition">1 hr</button>
+        <button on:click={() => update_interval(TimeInterval.FIFTEEN_MINUTES)} disabled={schedule.Interval == TimeInterval.FIFTEEN_MINUTES} class="border-2 {schedule.Interval == TimeInterval.FIFTEEN_MINUTES ? "text-black bg-white" : "text-white border-white hover:text-black hover:bg-white"} py-1 px-4 transition">15 min</button>
+        <button on:click={() => update_interval(TimeInterval.FIVE_MINUTES)} disabled={schedule.Interval == TimeInterval.FIVE_MINUTES} class="border-2 {schedule.Interval == TimeInterval.FIVE_MINUTES ? "text-black bg-white" : "text-white border-white hover:text-black hover:bg-white"} py-1 px-4 transition">5 min</button>
     </div>
     <div class="flex flex-row gap-2 items-center">
         {#each schedule.Schedule as setpoint, index}
