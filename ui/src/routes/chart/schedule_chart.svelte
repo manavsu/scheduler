@@ -125,7 +125,6 @@
 							to: (value: number) => Math.round(value / step_size) * step_size,
 						},
 						onDragStart: (event: any, element: any, index: any, value: any) => {
-							console.log(propagate_drag_forward, smart_propagation)
 							if (!propagate_drag_forward) {
 								propagate_drag_forward_flag = false;
 								return;

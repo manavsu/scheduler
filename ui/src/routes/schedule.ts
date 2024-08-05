@@ -20,6 +20,12 @@ export default class PowerSchedule {
         return new_schedule;
     }
 
+    reset() {
+        this.Schedule = [{time: new Time(0,0), value: 0}];
+        this.Days = [];
+        this.Interval = TimeInterval.ONE_HOUR;
+    }
+
     validate(schedule: { time: Time, value: number }[]) {
         let times:string[] = [];
         for (let i = 0; i < schedule.length; i++) {
@@ -39,11 +45,13 @@ export default class PowerSchedule {
     }
 
     toggle_run_day(day: Weekday) {
-        if (this.Days.indexOf(day) == -1) {
+        console.log("start", this.Days, day);
+        if (!this.Days.includes(day)) {
             this.Days.push(day);
-            return;
+        } else {
+            this.Days = this.Days.filter(x => x != day);
         }
-        this.Days = this.Days.filter(x => x != day);
+        console.log("end", this.Days, day);
     }
 
     update_interval(interval: TimeInterval) {
@@ -64,7 +72,6 @@ export default class PowerSchedule {
             unique_schedule.push(schedule[i]);
         }
         this.Schedule = unique_schedule;
-        console.log(this.Schedule);
         this.validate(this.Schedule);
     }
 }

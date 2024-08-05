@@ -5,16 +5,13 @@
     import TrashIcon from "$lib/icons/trach_icon.svelte";
 	import Time from "./time";
 	import { TimeInterval } from "$lib/time_intervals";
+    import ResetIcon from "$lib/icons/reset_icon.svelte";
 
     export let schedule = new PowerSchedule();
-    export let available_weekdays = [Weekday.Default, Weekday.Mon, Weekday.Tue, Weekday.Wed, Weekday.Sat, Weekday.Sun];
+    export let available_weekdays = [Weekday.Default, Weekday.Mon, Weekday.Tue, Weekday.Wed, Weekday.Thu, Weekday.Fri, Weekday.Sat, Weekday.Sun];
     export let on_delete: () => void;
     export let show_chart: () => void;
     
-    schedule.Schedule.push({time: new Time(10, 0), value: 0});
-    update_schedule_days(Weekday.Mon);
-    update_schedule_days(Weekday.Default);
-
     let times: string[] = [];
     let power_values: string[] = [];
 
@@ -74,10 +71,14 @@
     }
 
     function update_schedule_days(day: Weekday) {
-        if (!available_weekdays.includes(day)) {
-            available_weekdays.push(day);
+        if (schedule.Days.includes(day)) {
+            if (!available_weekdays.includes(day)) {
+                available_weekdays.push(day);
+            }
         } else {
-            available_weekdays = available_weekdays.filter((weekday) => weekday !== day);
+            if (available_weekdays.includes(day)) {
+                available_weekdays = available_weekdays.filter((weekday) => weekday !== day);
+            }
         }
         schedule.toggle_run_day(day);
         available_weekdays = [...available_weekdays];
@@ -86,7 +87,7 @@
 
     function update_times_and_values(schedule:{time: Time, value: number}[]) {
         times = schedule.map((setpoint) => setpoint.time.time_str);
-        power_values = schedule.map((setpoint) => setpoint.value);
+        power_values = schedule.map((setpoint) => setpoint.value.toString());
     }
 
     function handle_power_input(event:any, index:number) {
@@ -94,7 +95,6 @@
     }
 
     function parse_and_update_power(index: number, power: string) {
-        console.log(power, typeof power)
         let new_power = parseFloat(power);
         if (isNaN(new_power)) {
             power_values[index] = schedule.Schedule[index].value.toString();
@@ -111,13 +111,18 @@
     
     function parse_and_update_time(index: number, time: string) {
         let new_time = Time.from_string(time);
-        console.log(new_time, time);
         if (new_time == null) {
             times[index] = schedule.Schedule[index].time.time_str;
             return;
         }
+        let old_time = schedule.Schedule[index].time;
         schedule.Schedule[index].time = new_time.round(schedule.Interval);
-        schedule.Schedule = [...schedule.Schedule];
+        try {
+            schedule.validate(schedule.Schedule);
+        } finally {
+            schedule.Schedule[index].time = old_time;
+            schedule.Schedule = [...schedule.Schedule];
+        }
     }
 
     function handle_keydown(event:any) {
@@ -129,6 +134,14 @@
     function update_interval(interval: TimeInterval) {
         schedule.update_interval(interval);
         schedule.Interval = interval;
+        schedule.Schedule = [...schedule.Schedule];
+    }
+
+    function reset() {
+        while (schedule.Days.length > 0) {
+            update_schedule_days(schedule.Days[0]);
+        }
+        schedule.reset();
         schedule.Schedule = [...schedule.Schedule];
     }
 
@@ -162,7 +175,8 @@
         {/each}
     </div>
     <div class="flex flex-row gap-2 items-center">
-        <button on:click={show_chart} class="stroke-white transition w-8 hover:stroke-amber-700 transition"><ChartIcon /></button>
+        <!-- <button on:click={show_chart} class="stroke-white transition w-8 hover:stroke-amber-700 transition"><ChartIcon /></button> -->
         <button on:click={on_delete} class="fill-white transition w-8 hover:fill-amber-700 transition"><TrashIcon /></button>
+        <button on:click={reset} class="fill-white transition w-8 hover:fill-amber-700 transition"><ResetIcon /></button>
     </div>
 </div>
