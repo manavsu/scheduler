@@ -11,7 +11,28 @@
         ],
         "interval": 60,
         "days": [
-            "Default"
+            "Default",
+            "Wed",
+            "Thu",
+            "Mon",
+            "Fri"
+        ]
+    },
+    {
+        "schedule": [
+            {
+                "time": {
+                    "hour": 0,
+                    "minute": 0
+                },
+                "value": 30
+            }
+        ],
+        "interval": 60,
+        "days": [
+            "Sat",
+            "Sun",
+            "Tue"
         ]
     }
 ]

@@ -5,6 +5,9 @@
 	import { Chart as ChartJS, registerables } from 'chart.js';
 	import TailwindColors from '$lib/color_utils';
 	import { TimeInterval } from '$lib/time_intervals';
+	import { chart_schedule } from '$lib/store';
+	import Time from './time';
+	import PowerSchedule from './schedule';
 
 	ChartJS.register(...registerables, ChartDataLabels);
 	let ctx: any;
@@ -12,11 +15,11 @@
 	let chart: any;
 	let labels: string[];
 	let propagate_drag_forward_flag = true;
+	let interval:TimeInterval = $chart_schedule!.interval;
 	
 	export let step_size = 5;
 	export let propagate_drag_forward = true;
 	export let smart_propagation = true;
-	export let intervals:TimeInterval = TimeInterval.FIFTEEN_MINUTES;
 
 	function hourly_labels() {
 		const labels = [];
@@ -57,11 +60,21 @@
 		}
 	}
 
-	$: labels = get_labels(intervals);
-	$: power_setpoints = Array(labels.length).fill(0);
-	$: create_chart(intervals);
+	function update_schedule(power_setpoints: number[]) {
+		let setpoints = power_setpoints.map((value, index) => {
+			const time = labels[index];
+			return {time: Time.from_string(time)!, value: value};
+		});
+		$chart_schedule!.schedule = PowerSchedule.remove_copies_and_consolidate(setpoints);
+		console.log($chart_schedule!);
+	}
 
-	function create_chart(interval: TimeInterval) {
+	$: labels = get_labels(interval);
+	$: power_setpoints = labels.map((time) => $chart_schedule?.get_setpoint(Time.from_string(time)!));
+	$: update_schedule(power_setpoints);
+	$: create_chart();
+
+	function create_chart() {
 		if (chart) chart.destroy();
 		if (!ctx) return;
 		chart = new Chart(ctx, {
@@ -83,6 +96,7 @@
 				]
 			},
 			options: {
+				maintainAspectRatio: false,
 				interaction: {
 					intersect: true
 				},
@@ -91,10 +105,16 @@
 						title: {
 							display: true,
 							text: 'Local Time',
-							color: TailwindColors['white']
+							color: TailwindColors['white'],
+							font: {
+								size: 24
+							}
 						},
 						ticks: {
 							color: TailwindColors['white'],
+							font: {
+								size: 20
+							}
 						},
 						grid: {
 							color: TailwindColors['gray-800'],
@@ -104,10 +124,16 @@
 						title: {
 							display: true,
 							text: 'Power Setpoint (kW)',
-							color: TailwindColors['white']
+							color: TailwindColors['white'],
+							font: {
+								size: 24
+							}
 						},
 						ticks: {
 							color: TailwindColors['white'],
+							font: {
+								size: 20
+							}
 						},
 						grid: {
 							color: TailwindColors['gray-800'],
@@ -125,6 +151,7 @@
 							to: (value: number) => Math.round(value / step_size) * step_size,
 						},
 						onDragStart: (event: any, element: any, index: any, value: any) => {
+							propagate_drag_forward_flag = true;
 							if (!propagate_drag_forward) {
 								propagate_drag_forward_flag = false;
 								return;
@@ -139,10 +166,11 @@
 									return;
 								}
 							}
-							propagate_drag_forward_flag = true;
 						},
                         onDrag: (event: any, datasetIndex: any, index: any, value: any) => {
-							if (!propagate_drag_forward_flag) return;
+							if (!propagate_drag_forward_flag) {
+								return;
+							}
                             for (let i = index; i < power_setpoints.length; i++) {
                                 power_setpoints[i] = value;
                             }
@@ -171,7 +199,7 @@
 		});
 	}
 
-	onMount(() => create_chart(intervals));
+	onMount(() => create_chart());
 </script>
 
 <canvas bind:this={ctx}></canvas>

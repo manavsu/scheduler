@@ -3,10 +3,10 @@ from weekday import Weekday
 import json
 from datetime import *
 
-class SetPoint:
-    def __init__(self, time: time, value):
-        self.time = time
-        self.value = value
+class PowerSetPoint:
+    def __init__(self, time: datetime.time, value:float|int):
+        self.time:datetime.time = time
+        self.value:float|int = value
 
     def to_json(self):
         return {
@@ -23,10 +23,10 @@ class SetPoint:
         return cls(s_time, value)
                    
 class PowerSchedule:
-    def __init__(self, schedule: list[SetPoint], interval: TimeIntervals, days: list[Weekday]):
-        self.schedule = schedule
-        self.interval = interval
-        self.days = days
+    def __init__(self, schedule: list[PowerSetPoint], interval: TimeIntervals, days: list[Weekday]):
+        self.schedule:list[PowerSetPoint] = schedule
+        self.interval:TimeIntervals = interval
+        self.days:list[Weekday] = days
         
     def to_json(self):
         return {
@@ -39,9 +39,12 @@ class PowerSchedule:
     def from_json(cls, data):
         if isinstance(data, str):
             data = json.loads(data)
-        print(data)
-        schedule = [SetPoint.from_json(sp) for sp in data['schedule']]
+        schedule = [PowerSetPoint.from_json(sp) for sp in data['schedule']]
         interval = TimeIntervals(data['interval'])
         days = [Weekday[day] for day in data['days']]
         return cls(schedule, interval, days)
+   
+    @classmethod 
+    def default(cls):
+        return cls([PowerSetPoint(time(hour=0, minute=0), 0)], TimeIntervals.ONE_HOUR, [Weekday.Default])
     

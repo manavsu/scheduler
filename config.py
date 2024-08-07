@@ -4,9 +4,8 @@ import logging
 import sys
 
 log = logging.getLogger("config")
-log.setLevel(logging.DEBUG)
 
-PRODUCTION = True
+PRODUCTION = False
 VERSION = "1.0.0"
 
 def ensure_dir_exists(path):
@@ -15,7 +14,7 @@ def ensure_dir_exists(path):
 def get_network_store_path():
     if not PRODUCTION:
         path = "schedules.json"
-    if platform.system() == "Windows":
+    elif platform.system() == "Windows":
         path = os.getenv('APPDATA') + "/amber/schedules.json"
         ensure_dir_exists(path)
     else:
@@ -24,3 +23,5 @@ def get_network_store_path():
     return path
 
 DB_PATH = get_network_store_path()
+HOST = "127.0.0.1"
+PORT = 5000

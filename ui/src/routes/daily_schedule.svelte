@@ -6,11 +6,10 @@
 	import Time from "./time";
 	import { TimeInterval } from "$lib/time_intervals";
     import ResetIcon from "$lib/icons/reset_icon.svelte";
-    import { available_days } from "$lib/store";
+    import { available_days, chart_schedule } from "$lib/store";
 
     export let schedule = new PowerSchedule();
     export let on_delete: () => void;
-    // export let show_chart: () => void;
     
     let times: string[] = [];
     let power_values: string[] = [];
@@ -152,6 +151,10 @@
         on_delete();
     }
 
+    function show_chart() {
+        $chart_schedule = schedule;
+    }
+
     $: update_times_and_values(schedule.schedule);
     $: remove_setpoint_disabled = schedule.schedule.map((_, index) => get_remove_setpoint_disabled(index));
     $: add_setpoint_disabled = schedule.schedule.map((_, index) => get_add_setpoint_disabled(index));
@@ -173,7 +176,7 @@
             <input type="text" bind:value={times[index]} on:input={(event) => handle_time_input(event, index)} on:blur={() => parse_and_update_time(index, times[index])} on:keydown={handle_keydown} class="focus:outline-none caret-black bg-white text-black border-2 py-1 px-2 w-20 text-center"/>
             <div class="flex flex-row border-2 items-center py-1 px-4">
                 <input type="text" on:keydown={handle_keydown} bind:value={power_values[index]} on:blur={() => parse_and_update_power(index, power_values[index])} on:input={event => handle_power_input(event, index)} class="focus:outline-none bg-black text-white text-center w-12"/>
-                <div class="">kWh</div>
+                <div class="">kW</div>
             </div>
             <div class="flex flex-col gap-1">
                 <button on:click={() => add_setpoint(index)} disabled={add_setpoint_disabled[index]} class="bg-white hover:bg-amber-700 disabled:bg-gray-500 disabled:hover:bg-gray-500 min-h-4 min-w-4"/>
@@ -182,7 +185,7 @@
         {/each}
     </div>
     <div class="flex flex-row gap-2 items-center">
-        <!-- <button on:click={show_chart} class="stroke-white transition w-8 hover:stroke-amber-700 transition"><ChartIcon /></button> -->
+        <button on:click={() => show_chart()} class="stroke-white transition w-8 hover:stroke-amber-700 transition"><ChartIcon /></button>
         <button on:click={clean_up_and_delete} class="fill-white transition w-8 hover:fill-amber-700 transition"><TrashIcon /></button>
         <button on:click={reset} class="fill-white transition w-8 hover:fill-amber-700 transition"><ResetIcon /></button>
     </div>
