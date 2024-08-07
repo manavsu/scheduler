@@ -11,7 +11,7 @@ class ScheduleStore:
     latest_schedule:list[PowerSchedule]|None = None
 
     @classmethod
-    def load_all_schedule(cls) -> list[PowerSchedule]:
+    def load_all_schedules(cls) -> list[PowerSchedule]:
         schedules = []
         if not os.path.exists(DB_PATH):
             return [PowerSchedule.default()]
@@ -26,10 +26,11 @@ class ScheduleStore:
         return schedules
     
     @classmethod
-    def save_schedule(cls, schedules: list[PowerSchedule]):
+    def save_schedules(cls, schedules: list[PowerSchedule]):
         str_schedules = []
         for schedule in schedules:
             str_schedules.append(schedule.to_json())
+            log.debug(f"Saving {len(schedules)} schedules to {DB_PATH}")
         with cls.lock:
             cls.latest_schedule = schedules.copy()
             with open(DB_PATH, 'w') as file:
@@ -40,7 +41,7 @@ class ScheduleStore:
         with cls.lock:
             if cls.latest_schedule is not None:
                 return cls.latest_schedule if cls.latest_schedule is not None else []
-        return cls.load_all_schedule()
+        return cls.load_all_schedules()
         
         
         

@@ -5,7 +5,7 @@ import sys
 
 log = logging.getLogger("config")
 
-PRODUCTION = False
+PRODUCTION = True
 VERSION = "1.0.0"
 
 def ensure_dir_exists(path):
@@ -15,7 +15,13 @@ def get_network_store_path():
     if not PRODUCTION:
         path = "schedules.json"
     elif platform.system() == "Windows":
-        path = os.getenv('APPDATA') + "/amber/schedules.json"
+        appdata = os.getenv('APPDATA')
+        if appdata:
+            path = os.path.join(appdata, "amber", "schedules.json")
+            ensure_dir_exists(path)
+        else:
+            log.error("APPDATA environment variable is not set.")
+            path = "schedules.json"
         ensure_dir_exists(path)
     else:
         path = "schedules.json"

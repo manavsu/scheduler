@@ -1,0 +1,360 @@
+('C:\\Users\\Manav '
+ 'Singh\\Documents\\repositories\\shorts\\scheduler\\build\\entry\\super_cool_scheduler.pkg',
+ {'BINARY': True,
+  'DATA': True,
+  'EXECUTABLE': True,
+  'EXTENSION': True,
+  'PYMODULE': True,
+  'PYSOURCE': True,
+  'PYZ': False,
+  'SPLASH': True,
+  'SYMLINK': False},
+ [('pyi-contents-directory _internal', '', 'OPTION'),
+  ('PYZ-00.pyz',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build\\entry\\PYZ-00.pyz',
+   'PYZ'),
+  ('struct',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build\\entry\\localpycs\\struct.pyc',
+   'PYMODULE'),
+  ('pyimod01_archive',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build\\entry\\localpycs\\pyimod01_archive.pyc',
+   'PYMODULE'),
+  ('pyimod02_importers',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build\\entry\\localpycs\\pyimod02_importers.pyc',
+   'PYMODULE'),
+  ('pyimod03_ctypes',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build\\entry\\localpycs\\pyimod03_ctypes.pyc',
+   'PYMODULE'),
+  ('pyimod04_pywin32',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build\\entry\\localpycs\\pyimod04_pywin32.pyc',
+   'PYMODULE'),
+  ('pyiboot01_bootstrap',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\PyInstaller\\loader\\pyiboot01_bootstrap.py',
+   'PYSOURCE'),
+  ('pyi_rth_inspect',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_inspect.py',
+   'PYSOURCE'),
+  ('pyi_rth_pkgutil',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_pkgutil.py',
+   'PYSOURCE'),
+  ('pyi_rth_multiprocessing',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_multiprocessing.py',
+   'PYSOURCE'),
+  ('entry',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\entry.py',
+   'PYSOURCE'),
+  ('python312.dll',
+   'c:\\Users\\Manav '
+   'Singh\\AppData\\Local\\Programs\\Python\\Python312\\python312.dll',
+   'BINARY'),
+  ('select.pyd',
+   'c:\\Users\\Manav '
+   'Singh\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\select.pyd',
+   'EXTENSION'),
+  ('_hashlib.pyd',
+   'c:\\Users\\Manav '
+   'Singh\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_hashlib.pyd',
+   'EXTENSION'),
+  ('_lzma.pyd',
+   'c:\\Users\\Manav '
+   'Singh\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_lzma.pyd',
+   'EXTENSION'),
+  ('_bz2.pyd',
+   'c:\\Users\\Manav '
+   'Singh\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_bz2.pyd',
+   'EXTENSION'),
+  ('pyexpat.pyd',
+   'c:\\Users\\Manav '
+   'Singh\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\pyexpat.pyd',
+   'EXTENSION'),
+  ('_ssl.pyd',
+   'c:\\Users\\Manav '
+   'Singh\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_ssl.pyd',
+   'EXTENSION'),
+  ('unicodedata.pyd',
+   'c:\\Users\\Manav '
+   'Singh\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\unicodedata.pyd',
+   'EXTENSION'),
+  ('_decimal.pyd',
+   'c:\\Users\\Manav '
+   'Singh\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_decimal.pyd',
+   'EXTENSION'),
+  ('_multiprocessing.pyd',
+   'c:\\Users\\Manav '
+   'Singh\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_multiprocessing.pyd',
+   'EXTENSION'),
+  ('_socket.pyd',
+   'c:\\Users\\Manav '
+   'Singh\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_socket.pyd',
+   'EXTENSION'),
+  ('_ctypes.pyd',
+   'c:\\Users\\Manav '
+   'Singh\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_ctypes.pyd',
+   'EXTENSION'),
+  ('_queue.pyd',
+   'c:\\Users\\Manav '
+   'Singh\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_queue.pyd',
+   'EXTENSION'),
+  ('_wmi.pyd',
+   'c:\\Users\\Manav '
+   'Singh\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_wmi.pyd',
+   'EXTENSION'),
+  ('grpc\\_cython\\cygrpc.cp312-win_amd64.pyd',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\grpc\\_cython\\cygrpc.cp312-win_amd64.pyd',
+   'EXTENSION'),
+  ('_overlapped.pyd',
+   'c:\\Users\\Manav '
+   'Singh\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_overlapped.pyd',
+   'EXTENSION'),
+  ('_asyncio.pyd',
+   'c:\\Users\\Manav '
+   'Singh\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_asyncio.pyd',
+   'EXTENSION'),
+  ('markupsafe\\_speedups.cp312-win_amd64.pyd',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\markupsafe\\_speedups.cp312-win_amd64.pyd',
+   'EXTENSION'),
+  ('_uuid.pyd',
+   'c:\\Users\\Manav '
+   'Singh\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_uuid.pyd',
+   'EXTENSION'),
+  ('VCRUNTIME140.dll',
+   'c:\\Users\\Manav '
+   'Singh\\AppData\\Local\\Programs\\Python\\Python312\\VCRUNTIME140.dll',
+   'BINARY'),
+  ('libcrypto-3.dll',
+   'c:\\Users\\Manav '
+   'Singh\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\libcrypto-3.dll',
+   'BINARY'),
+  ('libssl-3.dll',
+   'c:\\Users\\Manav '
+   'Singh\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\libssl-3.dll',
+   'BINARY'),
+  ('libffi-8.dll',
+   'c:\\Users\\Manav '
+   'Singh\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\libffi-8.dll',
+   'BINARY'),
+  ('VCRUNTIME140_1.dll',
+   'c:\\Users\\Manav '
+   'Singh\\AppData\\Local\\Programs\\Python\\Python312\\VCRUNTIME140_1.dll',
+   'BINARY'),
+  ('build_ui\\_app\\env.js',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build_ui\\_app\\env.js',
+   'DATA'),
+  ('build_ui\\_app\\immutable\\assets\\0.BryrEvEf.css',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build_ui\\_app\\immutable\\assets\\0.BryrEvEf.css',
+   'DATA'),
+  ('build_ui\\_app\\immutable\\assets\\_layout.BryrEvEf.css',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build_ui\\_app\\immutable\\assets\\_layout.BryrEvEf.css',
+   'DATA'),
+  ('build_ui\\_app\\immutable\\chunks\\entry.ChfDHBgV.js',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build_ui\\_app\\immutable\\chunks\\entry.ChfDHBgV.js',
+   'DATA'),
+  ('build_ui\\_app\\immutable\\chunks\\index.BEp8ZzcC.js',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build_ui\\_app\\immutable\\chunks\\index.BEp8ZzcC.js',
+   'DATA'),
+  ('build_ui\\_app\\immutable\\chunks\\index.DyIVAGCa.js',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build_ui\\_app\\immutable\\chunks\\index.DyIVAGCa.js',
+   'DATA'),
+  ('build_ui\\_app\\immutable\\chunks\\scheduler.CnDQLdtr.js',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build_ui\\_app\\immutable\\chunks\\scheduler.CnDQLdtr.js',
+   'DATA'),
+  ('build_ui\\_app\\immutable\\chunks\\stores.DoIUqgAL.js',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build_ui\\_app\\immutable\\chunks\\stores.DoIUqgAL.js',
+   'DATA'),
+  ('build_ui\\_app\\immutable\\entry\\app.D9whmjuB.js',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build_ui\\_app\\immutable\\entry\\app.D9whmjuB.js',
+   'DATA'),
+  ('build_ui\\_app\\immutable\\entry\\start.VMOJdxId.js',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build_ui\\_app\\immutable\\entry\\start.VMOJdxId.js',
+   'DATA'),
+  ('build_ui\\_app\\immutable\\nodes\\0.B78MVmTm.js',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build_ui\\_app\\immutable\\nodes\\0.B78MVmTm.js',
+   'DATA'),
+  ('build_ui\\_app\\immutable\\nodes\\1.Dsz3eSim.js',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build_ui\\_app\\immutable\\nodes\\1.Dsz3eSim.js',
+   'DATA'),
+  ('build_ui\\_app\\immutable\\nodes\\2.DAe5xrt0.js',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build_ui\\_app\\immutable\\nodes\\2.DAe5xrt0.js',
+   'DATA'),
+  ('build_ui\\_app\\version.json',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build_ui\\_app\\version.json',
+   'DATA'),
+  ('build_ui\\chart.svg',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build_ui\\chart.svg',
+   'DATA'),
+  ('build_ui\\delete.svg',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build_ui\\delete.svg',
+   'DATA'),
+  ('build_ui\\favicon.png',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build_ui\\favicon.png',
+   'DATA'),
+  ('build_ui\\index.html',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build_ui\\index.html',
+   'DATA'),
+  ('build_ui\\reset-svgrepo-com.svg',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build_ui\\reset-svgrepo-com.svg',
+   'DATA'),
+  ('base_library.zip',
+   'C:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\build\\entry\\base_library.zip',
+   'DATA'),
+  ('grpc\\_cython\\_credentials\\roots.pem',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\grpc\\_cython\\_credentials\\roots.pem',
+   'DATA'),
+  ('importlib_metadata-8.0.0.dist-info\\REQUESTED',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\setuptools\\_vendor\\importlib_metadata-8.0.0.dist-info\\REQUESTED',
+   'DATA'),
+  ('importlib_metadata-8.0.0.dist-info\\LICENSE',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\setuptools\\_vendor\\importlib_metadata-8.0.0.dist-info\\LICENSE',
+   'DATA'),
+  ('importlib_metadata-8.0.0.dist-info\\RECORD',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\setuptools\\_vendor\\importlib_metadata-8.0.0.dist-info\\RECORD',
+   'DATA'),
+  ('importlib_metadata-8.0.0.dist-info\\INSTALLER',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\setuptools\\_vendor\\importlib_metadata-8.0.0.dist-info\\INSTALLER',
+   'DATA'),
+  ('importlib_metadata-8.0.0.dist-info\\WHEEL',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\setuptools\\_vendor\\importlib_metadata-8.0.0.dist-info\\WHEEL',
+   'DATA'),
+  ('importlib_metadata-8.0.0.dist-info\\top_level.txt',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\setuptools\\_vendor\\importlib_metadata-8.0.0.dist-info\\top_level.txt',
+   'DATA'),
+  ('importlib_metadata-8.0.0.dist-info\\METADATA',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\setuptools\\_vendor\\importlib_metadata-8.0.0.dist-info\\METADATA',
+   'DATA'),
+  ('flask-3.0.3.dist-info\\METADATA',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\flask-3.0.3.dist-info\\METADATA',
+   'DATA'),
+  ('flask-3.0.3.dist-info\\RECORD',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\flask-3.0.3.dist-info\\RECORD',
+   'DATA'),
+  ('werkzeug-3.0.3.dist-info\\INSTALLER',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\werkzeug-3.0.3.dist-info\\INSTALLER',
+   'DATA'),
+  ('itsdangerous-2.2.0.dist-info\\METADATA',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\itsdangerous-2.2.0.dist-info\\METADATA',
+   'DATA'),
+  ('itsdangerous-2.2.0.dist-info\\LICENSE.txt',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\itsdangerous-2.2.0.dist-info\\LICENSE.txt',
+   'DATA'),
+  ('blinker-1.8.2.dist-info\\WHEEL',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\blinker-1.8.2.dist-info\\WHEEL',
+   'DATA'),
+  ('blinker-1.8.2.dist-info\\LICENSE.txt',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\blinker-1.8.2.dist-info\\LICENSE.txt',
+   'DATA'),
+  ('itsdangerous-2.2.0.dist-info\\WHEEL',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\itsdangerous-2.2.0.dist-info\\WHEEL',
+   'DATA'),
+  ('blinker-1.8.2.dist-info\\METADATA',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\blinker-1.8.2.dist-info\\METADATA',
+   'DATA'),
+  ('blinker-1.8.2.dist-info\\RECORD',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\blinker-1.8.2.dist-info\\RECORD',
+   'DATA'),
+  ('itsdangerous-2.2.0.dist-info\\INSTALLER',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\itsdangerous-2.2.0.dist-info\\INSTALLER',
+   'DATA'),
+  ('itsdangerous-2.2.0.dist-info\\RECORD',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\itsdangerous-2.2.0.dist-info\\RECORD',
+   'DATA'),
+  ('flask-3.0.3.dist-info\\REQUESTED',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\flask-3.0.3.dist-info\\REQUESTED',
+   'DATA'),
+  ('flask-3.0.3.dist-info\\INSTALLER',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\flask-3.0.3.dist-info\\INSTALLER',
+   'DATA'),
+  ('werkzeug-3.0.3.dist-info\\RECORD',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\werkzeug-3.0.3.dist-info\\RECORD',
+   'DATA'),
+  ('werkzeug-3.0.3.dist-info\\LICENSE.txt',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\werkzeug-3.0.3.dist-info\\LICENSE.txt',
+   'DATA'),
+  ('werkzeug-3.0.3.dist-info\\METADATA',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\werkzeug-3.0.3.dist-info\\METADATA',
+   'DATA'),
+  ('werkzeug-3.0.3.dist-info\\WHEEL',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\werkzeug-3.0.3.dist-info\\WHEEL',
+   'DATA'),
+  ('flask-3.0.3.dist-info\\WHEEL',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\flask-3.0.3.dist-info\\WHEEL',
+   'DATA'),
+  ('flask-3.0.3.dist-info\\LICENSE.txt',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\flask-3.0.3.dist-info\\LICENSE.txt',
+   'DATA'),
+  ('blinker-1.8.2.dist-info\\INSTALLER',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\blinker-1.8.2.dist-info\\INSTALLER',
+   'DATA'),
+  ('flask-3.0.3.dist-info\\entry_points.txt',
+   'c:\\Users\\Manav '
+   'Singh\\Documents\\repositories\\shorts\\scheduler\\.venv\\Lib\\site-packages\\flask-3.0.3.dist-info\\entry_points.txt',
+   'DATA')],
+ 'python312.dll',
+ False,
+ False,
+ False,
+ [],
+ None,
+ None,
+ None)

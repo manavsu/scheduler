@@ -6,16 +6,12 @@
                     "hour": 0,
                     "minute": 0
                 },
-                "value": 0
+                "value": 5
             }
         ],
         "interval": 60,
         "days": [
-            "Default",
-            "Wed",
-            "Thu",
-            "Mon",
-            "Fri"
+            "Default"
         ]
     },
     {
@@ -25,14 +21,13 @@
                     "hour": 0,
                     "minute": 0
                 },
-                "value": 30
+                "value": 5
             }
         ],
         "interval": 60,
         "days": [
-            "Sat",
-            "Sun",
-            "Tue"
+            "Tue",
+            "Thu"
         ]
     }
 ]

@@ -8,8 +8,10 @@ import config
 import signal
 from time import sleep
 
+
 logging.basicConfig(level=logging.DEBUG, format="%(asctime)s:%(name)s:%(levelname)s:%(message)s", datefmt="%d-%m-%y %H:%M:%S")
 log = logging.getLogger("main")
+
 
 cancel_event = threading.Event()
 
@@ -18,28 +20,30 @@ def handle_sigint(signum, frame):
     cancel_event.set()
 
 signal.signal(signal.SIGINT, handle_sigint)
+    
+server = create_server(app, host=config.HOST, port=config.PORT)
+server_process = threading.Thread(target=server.run, daemon=True)
+jupiter_process = threading.Thread(target=jupiter_main.main_loop, args=(cancel_event,), daemon=True)
+log.info("Starting jupiter API...")
+jupiter_process.start()
 
-if __name__ == "__main__":
-    server = create_server(app, host=config.HOST, port=config.PORT)
-    server_process = threading.Thread(target=server.run, daemon=True)
-    jupiter_process = threading.Thread(target=jupiter_main.main_loop, args=(cancel_event,), daemon=True)
-    log.info("Starting jupiter API...")
-    jupiter_process.start()
-    
-    log.info("Starting flask...")
-    log.info(f"Serving on http://{config.HOST}:{config.PORT}")
-    server_process.start()
-    
-    webbrowser.open(f"http://localhost:5173")
-    
-    while not cancel_event.wait(5):
-        pass
+log.info("Starting flask...")
+log.info(f"Serving on http://{config.HOST}:{config.PORT}")
 
-    cancel_event.set()
-    log.info("Stopping server...")
-    server.close()
-    server_process.join()
-    
-    log.info("Stopping jupiter API...")
-    jupiter_process.join()
+log.info(f"Saving schedules to {config.DB_PATH}")
+server_process.start()
+
+webbrowser.open(f"http://{config.HOST}:{config.PORT}")
+
+while not cancel_event.wait(5):
+    pass
+
+cancel_event.set()
+log.info("Stopping server...")
+server.close()
+server_process.join()
+
+log.info("Stopping jupiter API...")
+jupiter_process.join()
+
     
