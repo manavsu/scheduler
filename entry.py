@@ -2,7 +2,6 @@ from waitress import serve, create_server
 from flask_main import app
 import logging
 import threading
-import jupiter_main
 import webbrowser
 import config
 import signal
@@ -23,9 +22,7 @@ signal.signal(signal.SIGINT, handle_sigint)
     
 server = create_server(app, host=config.HOST, port=config.PORT)
 server_process = threading.Thread(target=server.run, daemon=True)
-jupiter_process = threading.Thread(target=jupiter_main.main_loop, args=(cancel_event,), daemon=True)
 log.info("Starting jupiter API...")
-jupiter_process.start()
 
 log.info("Starting flask...")
 log.info(f"Serving on http://{config.HOST}:{config.PORT}")
